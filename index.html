@@ -1,0 +1,178 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contador</title>
+
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        h1 {
+            font-size: 35px;
+        }
+
+        #contador {
+            font-size: 40px;
+            margin: 25px;
+        }
+
+        .barra {
+            width: 80%;
+            max-width: 500px;
+            height: 30px;
+            background: #333;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #progreso {
+            width: 0%;
+            height: 100%;
+            background: #00cc66;
+        }
+
+        #boton {
+            background: #2196F3;
+            color: white;
+            border: 0;
+            padding: 20px 40px;
+            font-size: 22px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #boton:active {
+            background: #1565C0;
+        }
+
+        #recompensa {
+            display: none;
+            margin: 30px auto;
+            padding: 25px;
+            max-width: 500px;
+            background: #222;
+            border-radius: 15px;
+            font-size: 24px;
+        }
+
+        .animacion {
+            display: block !important;
+            animation: aparecer 1s ease;
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+
+            60% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #reiniciar {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #555;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>?? Consigue la recompensa</h1>
+
+    <div id="contador">0 / 100</div>
+
+    <div class="barra">
+        <div id="progreso"></div>
+    </div>
+
+    <button id="boton" onclick="sumarClick()">
+        ¡APRETAR!
+    </button>
+
+    <div id="recompensa">
+        <h2>?? ¡LLEGASTE A 100! ??</h2>
+
+        <p>
+            No te voy a pagar lo de Temu Fermin Landolfi ??
+        </p>
+    </div>
+
+    <button id="reiniciar" onclick="reiniciarContador()">
+        Reiniciar contador
+    </button>
+
+
+    <script type="text/javascript">
+
+        var contador = 0;
+
+        function sumarClick() {
+
+            if (contador < 100) {
+
+                contador = contador + 1;
+
+                document.getElementById("contador").innerHTML =
+                    contador + " / 100";
+
+                document.getElementById("progreso").style.width =
+                    contador + "%";
+
+                if (contador == 100) {
+
+                    document.getElementById("recompensa")
+                        .className = "animacion";
+
+                    document.getElementById("boton").disabled = true;
+
+                    document.getElementById("boton").innerHTML =
+                        "?? ¡CONSEGUIDO!";
+
+                }
+            }
+        }
+
+        function reiniciarContador() {
+
+            contador = 0;
+
+            document.getElementById("contador").innerHTML =
+                "0 / 100";
+
+            document.getElementById("progreso").style.width =
+                "0%";
+
+            document.getElementById("recompensa").className = "";
+
+            document.getElementById("boton").disabled = false;
+
+            document.getElementById("boton").innerHTML =
+                "¡APRETAR!";
+        }
+
+    </script>
+
+</body>
+</html>
+```
