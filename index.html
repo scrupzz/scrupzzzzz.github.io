@@ -37,6 +37,7 @@
             width: 0%;
             height: 100%;
             background: #00cc66;
+            transition: width 0.2s;
         }
 
         #boton {
@@ -98,30 +99,31 @@
 
 <body>
 
-    <h1>?? Consigue la recompensa</h1>
+    <h1>🎯 Consigue la recompensa</h1>
 
-    <div id="contador">0 / 100</div>
+    <div id="contador">0 / 10</div>
 
     <div class="barra">
         <div id="progreso"></div>
     </div>
 
     <button id="boton" onclick="sumarClick()">
-        �APRETAR!
+        ¡APRETAR!
     </button>
 
     <div id="recompensa">
-        <h2>?? �LLEGASTE A 100! ??</h2>
+
+        <h2>🎉 ¡LLEGASTE A 10! 🎉</h2>
 
         <p>
-            No te voy a pagar lo de Temu Fermin Landolfi ??
+            No te voy a pagar lo de Temu Fermin Landolfi 🖕
         </p>
+
     </div>
 
     <button id="reiniciar" onclick="reiniciarContador()">
         Reiniciar contador
     </button>
-
 
     <script type="text/javascript">
 
@@ -129,17 +131,17 @@
 
         function sumarClick() {
 
-            if (contador < 100) {
+            if (contador < 10) {
 
                 contador = contador + 1;
 
                 document.getElementById("contador").innerHTML =
-                    contador + " / 100";
+                    contador + " / 10";
 
                 document.getElementById("progreso").style.width =
-                    contador + "%";
+                    (contador * 10) + "%";
 
-                if (contador == 100) {
+                if (contador == 10) {
 
                     document.getElementById("recompensa")
                         .className = "animacion";
@@ -147,8 +149,7 @@
                     document.getElementById("boton").disabled = true;
 
                     document.getElementById("boton").innerHTML =
-                        "?? �CONSEGUIDO!";
-
+                        "🏆 ¡CONSEGUIDO!";
                 }
             }
         }
@@ -158,7 +159,7 @@
             contador = 0;
 
             document.getElementById("contador").innerHTML =
-                "0 / 100";
+                "0 / 10";
 
             document.getElementById("progreso").style.width =
                 "0%";
@@ -168,7 +169,7 @@
             document.getElementById("boton").disabled = false;
 
             document.getElementById("boton").innerHTML =
-                "�APRETAR!";
+                "¡APRETAR!";
         }
 
     </script>
@@ -176,3 +177,4 @@
 </body>
 </html>
 ```
+
